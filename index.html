@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CyberFarm ເຄື່ອງຄອມພິວເຕີ້</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jacques+Francois+Shadow&family=Phetsarath:wght@400;700&display=swap" rel="stylesheet">
     <style>
           /* Base Styles */
   * {
@@ -15,7 +18,7 @@
 body {
     background-color: #e0f7fa;
     color: #006064;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Phetsarath', sans-serif;
     line-height: 1.6;
 }
 
@@ -574,7 +577,7 @@ footer {
                     >
                       <img
                         style="width: 100px; height: 100px"
-                        src="/public/logo-removebg-preview.png"
+                        src="logo-removebg-preview.png"
                         alt="logo"
                       />
                     </div>
@@ -592,7 +595,7 @@ footer {
         </div>
     </header>
 
-    <section class="hero">
+    <section class="hero" id="home" style="margin-top: 100px;">
         <div class="container">
             <div class="hero-content"  >
                 <h1>ເພີ່ມພະລັງການປະມວນຜົນດ້ວຍເຄື່ອງຄອມພິວເຕີ້ຂອງພວກເຮົາ</h1>
@@ -600,7 +603,7 @@ footer {
                 
             </div>
             <div class="hero-image">
-                <img src="/public/products/7.jpeg" alt="product" style="width: 90%; height: 250px; object-fit: cover;">
+                <img src="7.jpeg" alt="product" style="width: 90%; height: 250px; object-fit: cover;">
             </div>
         </div>
         <div class="cloud cloud1"></div>
@@ -761,7 +764,7 @@ footer {
 const products = [
     {
         name: "FarmPro X1",
-        imgUrl: "/public/products/1.jpeg",
+        imgUrl: "1.jpeg",
         price: "$899",
         specs: ["Intel Core i5", "8GB RAM", "256GB SSD", "14\" Display"],
         tag: "Best Seller"
@@ -769,35 +772,35 @@ const products = [
     },
     {
         name: "HarvestBook Air",
-        imgUrl: "/public/products/2.jpeg",
+        imgUrl: "2.jpeg",
         price: "$1,199",
         specs: ["Apple M1", "8GB RAM", "256GB SSD", "13.3\" Retina"],
         tag: "New"
     },
     {
         name: "CropTop Ultra",
-        imgUrl: "/public/products/3.jpeg",
+        imgUrl: "3.jpeg",
         price: "$1,499",
         specs: ["AMD Ryzen 7", "16GB RAM", "512GB SSD", "15.6\" 4K"],
         tag: "Premium"
     },
     {
         name: "Seedling Lite",
-        imgUrl: "/public/products/4.jpeg",
+        imgUrl: "4.jpeg",
         price: "$599",
         specs: ["Intel Core i3", "4GB RAM", "128GB SSD", "13.3\" HD"],
         tag: "Budget"
     },
     {
         name: "Orchard Pro",
-        imgUrl: "/public/products/5.jpeg",
+        imgUrl: "5.jpeg",
         price: "$1,299",
         specs: ["Intel Core i7", "16GB RAM", "1TB SSD", "16\" Touch"],
         tag: "Powerful"
     },
     {
         name: "BarnBook Pro",
-        imgUrl: "/public/products/6.jpeg",
+        imgUrl: "6.jpeg",
         price: "$1,799",
         specs: ["Apple M2", "16GB RAM", "512GB SSD", "14.2\" Liquid"],
         tag: "Flagship"
