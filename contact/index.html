@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="lo">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ຕິດຕໍ່ພວກເຮົາ - FarmVille</title>
+   <style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #e9f5e9;
+    color: #4a6b4a;
+    line-height: 1.6;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Styles */
+header {
+    text-align: center;
+    padding: 30px 0;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+h1 {
+    font-size: 3rem;
+    color: #5a8f5a;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    position: relative;
+    display: inline-block;
+}
+
+h1::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background-color: #8bc34a;
+    border-radius: 2px;
+}
+
+.sun {
+    position: absolute;
+    top: 20px;
+    right: 50px;
+    width: 60px;
+    height: 60px;
+    background-color: #ffde59;
+    border-radius: 50%;
+    box-shadow: 0 0 20px #ffde59;
+    z-index: -1;
+}
+
+/* Main Content */
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.contact-form {
+    flex: 1;
+    min-width: 300px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border: 3px solid #c8e0c8;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-form::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 2px dashed #a8d8a8;
+    border-radius: 25px;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #5a8f5a;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #c8e0c8;
+    border-radius: 10px;
+    background-color: #f9fff9;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: #8bc34a;
+    box-shadow: 0 0 8px rgba(139, 195, 74, 0.4);
+}
+
+textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+button {
+    background-color: #8bc34a;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+button:hover {
+    background-color: #7cb342;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+button::after {
+    content: "➤";
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+button:hover::after {
+    opacity: 1;
+    right: 10px;
+}
+
+/* Contact Info */
+.contact-info {
+    flex: 1;
+    min-width: 300px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border: 3px solid #c8e0c8;
+}
+
+.contact-info h2 {
+    color: #5a8f5a;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 2rem;
+    position: relative;
+}
+
+.contact-info h2::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: #8bc34a;
+    border-radius: 2px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f9fff9;
+    border-radius: 10px;
+    border-left: 5px solid #8bc34a;
+}
+
+.info-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 15px;
+    background-color: #e8f5e9;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #8bc34a;
+    font-weight: bold;
+}
+
+.info-text h3 {
+    color: #5a8f5a;
+    margin-bottom: 5px;
+}
+
+/* Decorative Elements */
+.farm-decoration {
+    position: absolute;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.cloud {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0.8;
+}
+
+.cloud1 {
+    width: 100px;
+    height: 60px;
+    top: 50px;
+    left: -30px;
+}
+
+.cloud2 {
+    width: 150px;
+    height: 90px;
+    bottom: -40px;
+    right: -50px;
+}
+
+.animal {
+    position: absolute;
+    font-size: 40px;
+}
+
+.cow {
+    bottom: -20px;
+    left: 20px;
+}
+
+.chicken {
+    top: -20px;
+    right: 30px;
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #e8f5e9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #5a8f5a;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.social-icon:hover {
+    background-color: #8bc34a;
+    color: white;
+    transform: translateY(-3px);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    color: #5a8f5a;
+    font-size: 14px;
+    border-top: 2px dashed #c8e0c8;
+}
+
+footer a {
+    color: #5a8f5a;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+    }
+    
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    .sun {
+        width: 40px;
+        height: 40px;
+        top: 10px;
+        right: 20px;
+    }
+}
+   </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="sun"></div>
+            <h1>ຕິດຕໍ່ພວກເຮົາ</h1>
+            <p>ພວກເຮົາຍິນດີທີ່ຈະໄດ້ຍິນຈາກທ່ານ! ສົ່ງຂໍ້ຄວາມຫາພວກເຮົາຫຼືເດີນທາງມາຢ້ຽມຢາມຮ້ານຂອງພວກເຮົາ.</p>
+        </header>
+        
+        <div class="contact-container">
+            <form class="contact-form">
+                <div class="farm-decoration cloud cloud1"></div>
+                <div class="farm-decoration cloud cloud2"></div>
+                <div class="farm-decoration animal cow">🐄</div>
+                <div class="farm-decoration animal chicken">🐓</div>
+                
+                <div class="form-group">
+                    <label for="name">ຊື່ຂອງທ່ານ</label>
+                    <input type="text" id="name" name="name" placeholder="ຊື່ຂອງທ່ານ" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">ອີເມວ</label>
+                    <input type="email" id="email" name="email" placeholder="ອີເມວຂອງທ່ານ" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">ຫົວຂໍ້</label>
+                    <select id="subject" name="subject">
+                        <option value="">ເລືອກຫົວຂໍ້</option>
+                        <option value="support">ກ່ຽວກັບຮ້ານຂອງພວກເຮົາ</option>
+                        <option value="feedback">ຄຳເຫັນ</option>
+                        <option value="business">ການສອບຖາມທຸລະກິດ</option>
+                        <option value="other">ອື່ນໆ</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">ຂໍ້ຄວາມ</label>
+                    <textarea id="message" name="message" placeholder="ບອກພວກເຮົາສິ່ງທີ່ທ່ານກຳລັງຄິດ..." required></textarea>
+                </div>
+                
+                <button type="submit" onclick="alert('ສົ່ງຂໍ້ຄວາມສຳເລັດແລ້ວ!')">ສົ່ງຂໍ້ຄວາມ</button>
+            </form>
+            
+            <div class="contact-info">
+                <h2>ຮ້ານຂອງພວກເຮົາ</h2>
+                
+                <div class="info-item">
+                    <div class="info-icon">📍</div>
+                    <div class="info-text">
+                        <h3>ທີ່ຕັ້ງ</h3>
+                        <p>4 ຖະໜົນອານຸວົງ, ໄຊທານີ, ວຽງຈັນ</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">✉️</div>
+                    <div class="info-text">
+                        <h3>ອີເມວ</h3>
+                        <p>CyberFarm@gmail.com</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">📞</div>
+                    <div class="info-text">
+                        <h3>ໂທ</h3>
+                        <p>+856 20 77888888</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">⏰</div>
+                    <div class="info-text">
+                        <h3>ເວລາເຮັດວຽກ</h3>
+                        <p>ຈັນ - ສຸກ: 9:00 - 17:00<br>ເສົາ: 10:00 - 15:00</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">🌐</div>
+                    <div class="info-text">
+                        <h3>ສື່ສັງຄົມ</h3>
+                        <div class="social-icons">
+                            FB: CyberFarm | IG: @cyberfarm 
+                        </div>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon"><img src="/public/logo-removebg-preview.png" alt="logo" width="50px"></div>
+                    <div class="info-text">
+                        <h3>ພະນັກງານຂາຍ</h3>
+                        <div class="social-icons">
+                            ທ້າວ ວິໄລສິດ<br/>
+                            ທ້າວ ສັນຕິສຸກ <br/>
+                            ທ້າວ ແສງວິໄລ <br/>
+                            ທ້າວ ລີບອຍ <br/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2023 FarmVille Adventures. ສະຫງວນລິຂະສິດທັງໝົດ. | <a href="#">ນະໂຍບາຍຄວາມເປັນສ່ວນຕົວ</a> | <a href="#">ເງື່ອນໄຂການໃຊ້ງານ</a></p>
+        </footer>
+    </div>
+</body>
+</html>

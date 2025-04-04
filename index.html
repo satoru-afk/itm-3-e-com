@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="lo">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberFarm ເຄື່ອງຄອມພິວເຕີ້</title>
+    <style>
+          /* Base Styles */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #e0f7fa;
+    color: #006064;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+header {
+    background-color: rgba(178, 235, 242, 0.9);
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(5px);
+    border-bottom: 2px dashed #4dd0e1;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-icon {
+    font-size: 2rem;
+}
+
+.logo-text {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #00838f;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #006064;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 20px;
+    transition: all 0.3s;
+}
+
+nav a:hover {
+    background-color: #4dd0e1;
+    color: white;
+}
+
+/* Hero Section */
+.hero {
+    height: 500px;
+    background: linear-gradient(135deg, #b2ebf2 0%, #80deea 100%);
+    border-radius: 0 0 30px 30px;
+    margin-bottom: 50px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.hero-content {
+    width: 50%;
+    padding: 0 40px;
+    z-index: 10;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #006064;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #00838f;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #00acc1;
+    color: white;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn:hover {
+    background-color: #00838f;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.hero-image {
+    position: absolute;
+    right: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 500px;
+    height: 300px;
+    background-color: #e0f7fa;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: #00838f;
+}
+
+/* Decorative Elements */
+.cloud {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0.8;
+}
+@media (max-width: 768px){
+    .navbar{
+        display: none;
+    }
+}
+
+.cloud1 {
+    width: 150px;
+    height: 90px;
+    top: 100px;
+    left: 10%;
+}
+
+.cloud2 {
+    width: 200px;
+    height: 120px;
+    bottom: 50px;
+    left: 20%;
+}
+
+.cloud3 {
+    width: 180px;
+    height: 100px;
+    top: 150px;
+    right: 15%;
+}
+
+.animal {
+    position: absolute;
+    font-size: 2rem;
+    z-index: 1;
+}
+
+.cow {
+    bottom: 50px;
+    right: 15%;
+}
+
+.chicken {
+    top: 120px;
+    left: 25%;
+}
+
+/* Products Section */
+.products {
+    padding: 50px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.2rem;
+    color: #006064;
+    position: relative;
+}
+
+.section-title::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background-color: #4dd0e1;
+    border-radius: 2px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.product-card {
+    background-color: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s;
+    position: relative;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+    height: 200px;
+    background-color: #e0f7fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    color: #00838f;
+}
+
+.product-info {
+    padding: 20px;
+}
+
+.product-title {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: #006064;
+}
+
+.product-specs {
+    list-style: none;
+    margin-bottom: 15px;
+    color: #00838f;
+}
+
+.product-specs li {
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.product-specs li::before {
+    content: "✓";
+    margin-right: 8px;
+    color: #4dd0e1;
+}
+
+.product-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #006064;
+    margin-bottom: 15px;
+}
+
+.product-tag {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #4dd0e1;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+/* Features Section */
+.features {
+    padding: 50px 0;
+    background-color: #b2ebf2;
+    border-radius: 30px;
+    margin-bottom: 50px;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.feature-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #00838f;
+}
+
+.feature-title {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: #006064;
+}
+
+/* Our Story Section */
+.our-story {
+    padding: 80px 0;
+    background-color: white;
+    border-radius: 30px;
+    margin-bottom: 50px;
+}
+
+.story-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.story-text {
+    flex: 1;
+}
+
+.story-image {
+    flex: 1;
+    height: 400px;
+    background-color: #e0f7fa;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    color: #00838f;
+}
+
+/* Testimonials Section */
+.testimonials {
+    padding: 50px 0;
+    background-color: #b2ebf2;
+    border-radius: 30px;
+    margin-bottom: 50px;
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.testimonial-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    position: relative;
+}
+
+.testimonial-text {
+    font-style: italic;
+    margin-bottom: 20px;
+    color: #00838f;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.author-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #e0f7fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    color: #00838f;
+}
+
+.author-info h4 {
+    color: #006064;
+    margin-bottom: 5px;
+}
+
+.author-info p {
+    color: #00838f;
+    font-size: 0.9rem;
+}
+
+/* Newsletter */
+.newsletter {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.newsletter-form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    gap: 10px;
+}
+
+.newsletter-input {
+    flex: 1;
+    padding: 15px;
+    border: 2px solid #b2ebf2;
+    border-radius: 30px;
+    font-size: 1rem;
+}
+
+.newsletter-input:focus {
+    outline: none;
+    border-color: #4dd0e1;
+}
+
+/* Footer */
+footer {
+    background-color: #00838f;
+    color: white;
+    padding: 50px 0 20px;
+    border-radius: 30px 30px 0 0;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.footer-column h3 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.footer-column h3::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: #4dd0e1;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column li {
+    margin-bottom: 10px;
+}
+
+.footer-column a {
+    color: #b2ebf2;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.footer-column a:hover {
+    color: white;
+    padding-left: 5px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-link {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.social-link:hover {
+    background-color: #4dd0e1;
+    transform: translateY(-3px);
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #b2ebf2;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .hero-content {
+        width: 100%;
+        text-align: center;
+    }
+
+    .hero-image {
+        display: none;
+    }
+
+    .story-content {
+        flex-direction: column;
+    }
+
+    .story-image {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <div class="logo-icon">
+                    <div
+                      style="
+                        width: 60px;
+                        height: 60px;
+                        object-fit: cover;
+                        display: flex;
+                        align-items: center;
+                      "
+                    >
+                      <img
+                        style="width: 100px; height: 100px"
+                        src="/public/logo-removebg-preview.png"
+                        alt="logo"
+                      />
+                    </div>
+                  </div>
+                <h3 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; margin-left: 10px;" >CyberFarm</h3>
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#productGrid">ເຄື່ອງຄອມພິວເຕີ້</a></li>
+                    
+                    <li><a href="/contact/index.html">ຕິດຕໍ່ພວກເຮົາ</a></li>
+                    <li><a href="#about">ກ່ຽວກັບພວກເຮົາ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content"  >
+                <h1>ເພີ່ມພະລັງການປະມວນຜົນດ້ວຍເຄື່ອງຄອມພິວເຕີ້ຂອງພວກເຮົາ</h1>
+                <p style="color: black;">ພັດທະນາປະສິດທິພາບຂອງທ່ານດ້ວຍຄອມພິວເຕີ້ປະກອບໃຫມ່ສົດຈາກຟາມຄອມພິວເຕີ້ຂອງພວກເຮົາ, ທີ່ຖືກປະກອບຢ່າງລະມັດລະວັງເພື່ອຄຸນນະພາບສິນຄ້າຂອງທ່ານ.</p>
+                
+            </div>
+            <div class="hero-image">
+                <img src="/public/products/7.jpeg" alt="product" style="width: 90%; height: 250px; object-fit: cover;">
+            </div>
+        </div>
+        <div class="cloud cloud1"></div>
+        <div class="cloud cloud2"></div>
+        <div class="cloud cloud3"></div>
+        <div class="animal cow">🐄</div>
+        <div class="animal chicken">🐓</div>
+    </section>
+
+    <section class="products">
+        <div class="container">
+            <h2 class="section-title">ສິນຄ້າສົດຈາກຟາມດິຈິຕອນຂອງພວກເຮົາ</h2>
+            <div class="product-grid" id="productGrid">
+                <!-- Products will be loaded here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">ເຫດຜົນທີ່ຄວນເລືອກຜະລິດຕະພັນຂອງພວກເຮົາ</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🌱</div>
+                    <h3 class="feature-title">ປະສິດທິພາບໃນການປະມວນຜົນ</h3>
+                    <p>ເຄື່ອງຄອມພິວເຕີ້ຂອງພວກເຮົາບໍ່ມີສານເສີມປະສິດທິພາບປອມ, ມີແຕ່ພະລັງງານການປະມວນຜົນທີ່ບໍລິສຸດ.</p>
+                    
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💧</div>
+                    <h3 class="feature-title">ຄອມພິວເຕີ້ທົນທານນ້ຳ</h3>
+                    <p>ການຫຼິ້ນນ້ຳຈະບໍ່ທຳລາຍຄອມພິວເຕີ້ຂອງທ່ານ.</p>
+                    
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">☀️</div>
+                    <h3 class="feature-title">ຈໍສາມາດເບິ່ງໃນແສງແດດໄດ້</h3>
+                    <p>ເຮັດວຽກໃນທົ່ງນາຫຼືໃກ້ປ່ອງຢ້ຽມດ້ວຍຈໍສະຫວ່າງສູງ ທີ່ຕ້ານການສະທ້ອນແສງຂອງພວກເຮົາ.</p>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="our-story" id="about">
+        <div class="container">
+            <h2 class="section-title">ກ່ຽວກັບພວກເຮົາ</h2>
+            <div class="story-content">
+                <div class="story-text">
+                    <p>ກໍ່ຕັ້ງຂຶ້ນໃນປີ 2023, CyberFarm ເລີ່ມຕົ້ນເປັນທຸລະກິດຄອບຄົວເລັກນ້ອຍໃນໃຈກາງຊົນນະບົດ. ຜູ້ກໍ່ຕັ້ງຂອງພວກເຮົາ, ເປັນຊາວນາຮຸ່ນທີສາມທີ່ມີຄວາມຮັກໃນເຕັກໂນໂລຊີ, ສັງເກດເຫັນວ່າເຄື່ອງຄອມພິວເຕີ້ສະໄໝໃໝ່ຂາດຄວາມອົບອຸ່ນ ແລະ ຄວາມໜ້າເຊື່ອຖືຄືກັບອຸປະກອນກະສິກຳ.</p>
+                    <p style="margin: 20px 0;">ພວກເຮົາໄດ້ຕັ້ງໃຈປະກອບເຄື່ອງຄອມພິວເຕີ້ປະເພດໃໝ່ - ທີ່ເຕີບໃຫຍ່ກັບທ່ານ, ປັບຕົວເຂົ້າກັບສະພາບແວດລ້ອມຂອງທ່ານ, ແລະ ທົນທານຕໍ່ການໃຊ້ງານປະຈຳວັນຄືກັບລົດໄຖນາຂອງພວກເຮົາທີ່ທົນທານຕໍ່ທົ່ງນາ. ແຕ່ລະເຄື່ອງ CyberFarm ຖືກດູແລຈາກເຜູ້ຊ່ຽວຊານຈົນເຖິງການເປະກອບດ້ວຍຄວາມລະມັດລະວັງຄືກັນກັບພືດອິນຊີຂອງພວກເຮົາ.</p>
+                    <p>ມື້ນີ້, ພວກເຮົາພູມໃຈທີ່ຈະບໍລິການຊາວນາດິຈິຕອນທົ່ວໂລກ, ຊ່ວຍໃຫ້ພວກເຂົາສາມາດປະມວນຜົນວຽກ ແລະ ເກັບກ່ຽວຄວາມສຳເລັດໃນທຸກຄວາມພະຍາຍາມຂອງພວກເຂົາ. ວິທີການຈາກຟາມສູ່ໂຕະຂອງພວກເຮົາໃນການນຳເອົາເຕັກໂນໂລຊີມາໃຫ້ທ່ານຮັບປະກັນວ່າທ່ານຈະໄດ້ຮັບປະສົບການການຄິດໄລ່ທີ່ສົດຊື່ນ ແລະ ມີປະໂຫຍດທີ່ສຸດ.</p>
+                   
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">ລູກຄ້າຂອງພວກເຮົາເວົ້າແນວໃດ</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "ເຄື່ອງຄອມພິວເຕີ້ CyberFarm ຂອງຂ້ອຍໄດ້ປ່ຽນແປງປະສົບການການເຮັດຟາມດິຈິຕອນຂອງຂ້ອຍໄປທັງໝົດ. ແບດເຕີຣີສາມາດໃຊ້ໄດ້ຕະຫຼອດມື້ໃນທົ່ງນາ, ແລະ ແປ້ນພິມຮູ້ສຶກຄືກັບຖືກເກັບກ່ຽວມາເພື່ອນິ້ວມືຂອງຂ້ອຍໂດຍສະເພາະ!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">👩‍🌾</div>
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>ຊາວນາອິນຊີ ແລະ ນັກຂຽນບລັອກ</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "ເປັນຊາວນາທີ່ມັກເຕັກໂນໂລຊີ, ຂ້ອຍຕ້ອງການອຸປະກອນທີ່ໜ້າເຊື່ອຖື. FarmPro X1 ຂອງຂ້ອຍສາມາດລອດພົ້ນຈາກພາຍຸຝຸ່ນ, ນ້ຳກາເຟຫຼົ້ນ, ແລະ ແມ່ນແຕ່ແບ້ທີ່ຢາກຮູ້ຢາກເຫັນ! CyberFarm ສ້າງເຄື່ອງຄອມພິວເຕີ້ທີ່ເຂັ້ມແຂງຄືກັບອຸປະກອນກະສິກຳ."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">👨‍🌾</div>
+                        <div class="author-info">
+                            <h4>Michael Rodriguez</h4>
+                            <p>ຜູ້ຈັດການຟາມສັດນົມ</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "ຈໍສາມາດເບິ່ງໃນແສງແດດໄດ້ເປັນການປ່ຽນແປງເກມສຳລັບການເຮັດວຽກກ້ອງນອກ. ນອກຈາກນີ້, ຕົວເລືອກສີແຕ່ງຕົວທີ່ເປັນທຳມະຊາດເຮັດໃຫ້ເຄື່ອງຄອມພິວເຕີ້ຂອງຂ້ອຍດູແລຄືກັບຢູ່ເຮືອນໃນບັນດາຕົ້ນໄມ້ຂອງຂ້ອຍ. CyberFarm ເຂົ້າໃຈຄວາມຕ້ອງການຂອງຜູ້ໃຊ້ໃນຊົນນະບົດ!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">👩‍💻</div>
+                        <div class="author-info">
+                            <h4>Emily Chen</h4>
+                            <p>ທີ່ປຶກສາ AgriTech</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="newsletter">
+        <div class="container">
+            <h2 class="section-title">ຮ່ວມກັນເປັນສ່ວນໜຶ່ງຂອງຊຸມຊົນການເຮັດຟາມດິຈິຕອນຂອງພວກເຮົາ</h2>
+            <p>ຈອງເພື່ອຮັບຂໍ້ສະເໜີ ແລະ ຄຳແນະນຳກ່ຽວກັບຄອມພິວເຕີ້ສຳລັບເຕັກໂນໂລຊີຂອງທ່ານ.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="ອີເມວຂອງທ່ານ" class="newsletter-input" required>
+                <button type="submit" class="btn">ຕິດຕໍ່ພວກເຮົາ</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>CyberFarm</h3>
+                    <p>ເຕີບໃຫຍ່ທາງເຕັກໂນໂລຊີນັບຕັ້ງແຕ່ປີ 2023. ພວກເຮົາປູກຝັງເຄື່ອງມືດິຈິຕອນທີ່ດີທີ່ສຸດສຳລັບຊີວິດຟາມສະໄໝໃໝ່ຂອງທ່ານ.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>ລິ້ງດ່ວນ</h3>
+                    <ul>
+                        <li><a href="#about">ກ່ຽວກັບພວກເຮົາ</a></li>
+                        <li><a href="#productGrid">ຜະລິດຕະພັນຂອງພວກເຮົາ</a></li>
+                        <li><a href="#testimonials">ຄຳເຫັນຈາກລູກຄ້າ</a></li>
+                        
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>ສະຫນັບສະຫນູນ</h3>
+                    <ul>
+                        <li><a href="#">ຄຳຖາມທີ່ພົບເລື້ອຍ</a></li>
+                        
+                        <li><a href="#home">ການຄືນສິນຄ້າ</a></li>
+                        <li><a href="/contact/index.html">ຕິດຕໍ່ພວກເຮົາ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>ພະນັກງານຂາຍ</h3>
+                    <div class="social-links">
+                        ທ້າວ ວິໄລສິດ<br/>
+                        ທ້າວ ສັນຕິສຸກ <br/>
+                        ທ້າວ ແສງວິໄລ <br/>
+                        ທ້າວ ລີບອຍ <br/>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 CyberFarm ເຄື່ອງຄອມພິວເຕີ້. ສະຫງວນລິຂະສິດທັງໝົດ.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Product data
+const products = [
+    {
+        name: "FarmPro X1",
+        imgUrl: "/public/products/1.jpeg",
+        price: "$899",
+        specs: ["Intel Core i5", "8GB RAM", "256GB SSD", "14\" Display"],
+        tag: "Best Seller"
+        
+    },
+    {
+        name: "HarvestBook Air",
+        imgUrl: "/public/products/2.jpeg",
+        price: "$1,199",
+        specs: ["Apple M1", "8GB RAM", "256GB SSD", "13.3\" Retina"],
+        tag: "New"
+    },
+    {
+        name: "CropTop Ultra",
+        imgUrl: "/public/products/3.jpeg",
+        price: "$1,499",
+        specs: ["AMD Ryzen 7", "16GB RAM", "512GB SSD", "15.6\" 4K"],
+        tag: "Premium"
+    },
+    {
+        name: "Seedling Lite",
+        imgUrl: "/public/products/4.jpeg",
+        price: "$599",
+        specs: ["Intel Core i3", "4GB RAM", "128GB SSD", "13.3\" HD"],
+        tag: "Budget"
+    },
+    {
+        name: "Orchard Pro",
+        imgUrl: "/public/products/5.jpeg",
+        price: "$1,299",
+        specs: ["Intel Core i7", "16GB RAM", "1TB SSD", "16\" Touch"],
+        tag: "Powerful"
+    },
+    {
+        name: "BarnBook Pro",
+        imgUrl: "/public/products/6.jpeg",
+        price: "$1,799",
+        specs: ["Apple M2", "16GB RAM", "512GB SSD", "14.2\" Liquid"],
+        tag: "Flagship"
+    }
+];
+
+// Load products
+document.addEventListener('DOMContentLoaded', function() {
+    const productGrid = document.getElementById('productGrid');
+    
+    products.forEach(product => {
+        const productCard = document.createElement('div');
+        productCard.className = 'product-card';
+        
+        productCard.innerHTML = `
+            <div class="product-image">
+            <img src="${product.imgUrl}" alt="${product.name}" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="product-info">
+                <h3 class="product-title">${product.name}</h3>
+                <ul class="product-specs">
+                    ${product.specs.map(spec => `<li>${spec}</li>`).join('')}
+                </ul>
+                <div class="product-price">${product.price}</div>
+                <button class="btn" ><a href="/contact/index.html" style="text-decoration: none; color: white;">Contact Us</a></button>
+            </div>
+            ${product.tag ? `<div class="product-tag">${product.tag}</div>` : ''}
+        `;
+        
+        productGrid.appendChild(productCard);
+    });
+
+    // Newsletter form submission
+    const newsletterForm = document.querySelector('.newsletter-form');
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const emailInput = this.querySelector('input[type="email"]');
+            if (emailInput.value) {
+                alert('Thanks for subscribing to our digital farm newsletter!');
+                emailInput.value = '';
+            }
+        });
+    }
+});
+
+    </script>
+        
+    </script>
+</body>
+</html>
